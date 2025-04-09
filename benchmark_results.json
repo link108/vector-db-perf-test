@@ -1,20 +1,22 @@
 {
   "Weaviate": {
     "Database": "Weaviate",
-    "Avg Query Latency (ms)": 13.4,
+    "Avg Query Latency (ms)": 13.24,
     "Avg Top-1 Cosine Similarity": 0.7886
+  },
+  "Qdrant": {
+    "Database": "Qdrant",
+    "Avg Query Latency (ms)": 6.05,
+    "Avg Top-1 Cosine Similarity": 0.7888
+  },
+  "Milvus": {
+    "Database": "Milvus",
+    "Avg Query Latency (ms)": 2.55,
+    "Avg Top-1 Cosine Similarity": 0.7878
   },
   "MongoDB": {
     "Database": "MongoDB",
     "Avg Query Latency (ms)": -1,
     "Avg Top-1 Cosine Similarity": 0.0
-  },
-  "Qdrant": {
-    "Database": "Qdrant",
-    "Avg Query Latency (ms)": 6.03,
-    "Avg Top-1 Cosine Similarity": 0.7888
-  },
-  "Milvus": {
-    "Database": "Milvus",
-    "Avg Query Latency (ms)": 2.49,
-    "Avg Top-1 Cosine Similarity": 
+  }
+}

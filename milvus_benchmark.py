@@ -26,13 +26,13 @@ def benchmark_milvus(vectors, queries, top_k):
     collection = Collection(name=collection_name, schema=schema)
 
     # Insert vectors
-    print("Uploading to Milvus...")
+    print("📤 Uploading to Milvus...")
     ids = list(range(len(vectors)))
     collection.insert([ids, vectors.tolist()])
     collection.flush()
 
     # Create index
-    print("Creating index...")
+    print("🧱 Creating index...")
     index_params = {
         "index_type": "HNSW",
         "metric_type": "COSINE",
@@ -47,7 +47,7 @@ def benchmark_milvus(vectors, queries, top_k):
     latencies = []
     top1_scores = []
 
-    for query in tqdm(queries, desc="Querying Milvus"):
+    for query in tqdm(queries, desc="🔍 Querying Milvus"):
         start = time.time()
         results = collection.search(
             data=[query.tolist()],
@@ -57,20 +57,20 @@ def benchmark_milvus(vectors, queries, top_k):
             output_fields=["id"]
         )
         latency = (time.time() - start) * 1000
-        latencies.append(latency)
+        latencies.append(float(latency))  # ensure native float
 
         if results[0]:
             top_vec_id = results[0][0].id
             top_vec = vectors[top_vec_id]
             score = cosine_similarity(query, top_vec)
-            top1_scores.append(score)
+            top1_scores.append(float(score))  # <== fix here
         else:
             top1_scores.append(0.0)
 
-    avg_latency = np.mean(latencies)
-    avg_score = np.mean(top1_scores)
+    avg_latency = float(np.mean(latencies))
+    avg_score = float(np.mean(top1_scores))
 
-    print("\\n===== Milvus Benchmark =====")
+    print("\n===== Milvus Benchmark =====")
     print(f"Avg Query Latency: {avg_latency:.2f} ms")
     print(f"Avg Top-1 Cosine Similarity: {avg_score:.4f}")
 
