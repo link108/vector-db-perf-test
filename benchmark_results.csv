@@ -1,0 +1,4 @@
+Database,Avg Query Latency (ms),Avg Top-1 Cosine Similarity
+Weaviate,13.4,0.7886
+Qdrant,6.03,0.7888
+MongoDB,-1.0,0.0

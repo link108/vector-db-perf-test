@@ -1,0 +1,20 @@
+{
+  "Weaviate": {
+    "Database": "Weaviate",
+    "Avg Query Latency (ms)": 13.4,
+    "Avg Top-1 Cosine Similarity": 0.7886
+  },
+  "MongoDB": {
+    "Database": "MongoDB",
+    "Avg Query Latency (ms)": -1,
+    "Avg Top-1 Cosine Similarity": 0.0
+  },
+  "Qdrant": {
+    "Database": "Qdrant",
+    "Avg Query Latency (ms)": 6.03,
+    "Avg Top-1 Cosine Similarity": 0.7888
+  },
+  "Milvus": {
+    "Database": "Milvus",
+    "Avg Query Latency (ms)": 2.49,
+    "Avg Top-1 Cosine Similarity": 
